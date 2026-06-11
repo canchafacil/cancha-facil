@@ -1,0 +1,257 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Reserva de Canchas - CanchaFácil</title>
+    <link rel="icon" href="{% static 'principal/img/logo-green.png' %}">
+    <link rel="stylesheet" href="{% static 'principal/css/formulario.css' %}">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark shadow" style="background-color: #03045e;">
+        <div class="container">
+            <img src="{% static 'principal/img/logo-green.png' %}" style="height: 90px;" alt="Logo de CanchaFácil">
+            <a class="navbar-brand fw-bold ms-2" href="{% url 'inicio' %}" style="font-size: 2rem; color: white;">
+                Cancha<span style="color: #62ff00;">Fácil </span>
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="menu">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'inicio' %}">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{% url 'reservas' %}">Reservas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'nosotros' %}">Sobre Nosotros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'contacto' %}">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <div class="row g-4">
+
+            <div class="col-md-6">
+                <div class="card p-4 shadow border-0">
+                    <h4 class="mb-3 fw-bold">Reservar cancha</h4>
+
+                    <form id="formReserva">
+                        {% csrf_token %} <div class="mb-3">
+                            <label for="nombre" class="form-label">Nombre completo</label>
+                            <input type="text" id="nombre" class="form-control" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="telefono" class="form-label">Teléfono</label>
+                            <input type="tel" id="telefono" class="form-control" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="fecha" class="form-label">Fecha</label>
+                            <input type="date" id="fecha" class="form-control" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="hora" class="form-label">Hora</label>
+                            <input type="time" id="hora" class="form-control" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="cancha" class="form-label">Tipo de cancha</label>
+                            <select id="cancha" class="form-select">
+                                <option value="Fútbol 5">Fútbol 5</option>
+                                <option value="Fútbol 7">Fútbol 7</option>
+                                <option value="Fútbol 11">Fútbol 11</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="duracion" class="form-label">Duración</label>
+                            <select id="duracion" class="form-select">
+                                <option value="1 Hora">1 hora</option>
+                                <option value="2 Horas">2 horas</option>
+                            </select>
+                        </div>
+
+                        <button type="submit" class="btn btn-pagar w-100 py-2 border-0 fw-bold text-uppercase shadow-sm" 
+                                style="background-color: #62ff00; color: #03045e; border-radius: 8px;">
+                            Pagar ahora
+                        </button>
+                    </form>
+                </div>
+
+                <div class="card mt-4 p-3 shadow border-0">
+                    <h5 class="fw-semibold mb-2">Horarios disponibles hoy</h5>
+                    <div class="d-flex flex-wrap">
+                        <span class="badge bg-success m-1 p-2">8:00 AM</span>
+                        <span class="badge bg-success m-1 p-2">10:00 AM</span>
+                        <span class="badge bg-danger m-1 p-2">12:00 PM</span>
+                        <span class="badge bg-success m-1 p-2">2:00 PM</span>
+                        <span class="badge bg-danger m-1 p-2">4:00 PM</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+
+                <div class="mb-4 rounded overflow-hidden shadow-sm">
+                    <iframe src="https://www.google.com/maps?q=bogota&output=embed" width="100%" height="220" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+
+                <p class="text-muted fw-bold text-uppercase mb-2" style="font-size: 0.9rem; letter-spacing: 1px;">Canchas que también te pueden interesar</p>
+                
+                <div id="carouselExample" class="carousel slide mb-4 shadow-sm rounded overflow-hidden">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="https://www.elespectador.com/resizer/v2/IDXTLKBCAJGZNDAKCMJWNBEMCQ.jpg?auth=452426f1ed09fe978005b7dba3a2df862d961539a8afa12a721ac17612697811&width=920&height=613&smart=true&quality=60" class="d-block w-100" height="220" style="object-fit: cover;" alt="Cancha sintética profesional">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvjIZOVgmVNQZZx7IbnVtKfSHIqH_TsyVoTQ&s" class="d-block w-100" height="220" style="object-fit: cover;" alt="Cancha de fútbol 5 techada">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="https://irp.cdn-website.com/09dcdaca/dms3rep/multi/empty-white-gate-2023-11-27-05-37-03-utc+%281%29.jpg" class="d-block w-100" height="220" style="object-fit: cover;" alt="Cancha de fútbol 7 nocturna">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="https://vallealto.mx/wp-content/uploads/2021/04/IMG_0179-scaled.jpg" class="d-block w-100" height="220" style="object-fit: cover;" alt="Cancha de fútbol de entrenamiento">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon"></span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                        <span class="carousel-control-next-icon"></span>
+                    </button>
+                </div>
+
+                <div class="card p-3 shadow border-0">
+                    <h5 class="fw-semibold mb-3">Reservas recientes</h5>
+                    <ul class="list-group list-group-flush" id="listaReservas"></ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <footer class="mt-5" style="background: linear-gradient(to right, #1f252b, #2b333b); color: white; padding: 30px 0;">
+        <div class="container">
+            <div class="row mb-2">
+                <div class="col-md-6 text-center text-md-start mb-2 mb-md-0">
+                    Teléfono: <span style="color:#62ff00;">+57 300 000 0000</span>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    Correo electrónico: <span style="color:#62ff00;">canchafacil@gmail.com</span>
+                </div>
+            </div>
+
+            <hr style="border-color: rgba(255,255,255,0.15);">
+
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-start mb-2 mb-md-0">
+                    Copyright © 2026 CanchaFácil. Todos los derechos reservados.
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    Síguenos en:
+                    <a href="#" style="color: #62ff00;" aria-label="YouTube"><i class="bi bi-youtube me-2 ms-2"></i></a>
+                    <a href="#" style="color: #62ff00;" aria-label="Facebook"><i class="bi bi-facebook me-2"></i></a>
+                    <a href="#" style="color: #62ff00;" aria-label="Instagram"><i class="bi bi-instagram me-2"></i></a>
+                    <a href="#" style="color: #62ff00;" aria-label="TikTok"><i class="bi bi-tiktok me-2"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="modal fade" id="modalReserva" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title fw-bold">¡Reserva exitosa!</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Tu cancha ha sido procesada correctamente. Serás redirigido a la pasarela de pagos.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        document.getElementById("formReserva").addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const reserva = {
+                nombre: document.getElementById("nombre").value,
+                telefono: document.getElementById("telefono").value,
+                fecha: document.getElementById("fecha").value,
+                hora: document.getElementById("hora").value,
+                cancha: document.getElementById("cancha").value,
+                duracion: document.getElementById("duracion").value,
+                estado: "Pendiente"
+            };
+
+            let reservas = JSON.parse(localStorage.getItem("reservas")) || [];
+            reservas.push(reserva);
+            localStorage.setItem("reservas", JSON.stringify(reservas));
+
+            mostrarReservas();
+            this.reset();
+
+            const modalElement = document.getElementById('modalReserva');
+            const myModal = new bootstrap.Modal(modalElement);
+            myModal.show();
+
+            // Usamos las etiquetas de Django URL dentro de las cadenas de JavaScript
+            modalElement.addEventListener('hidden.bs.modal', function () {
+                window.location.href = "{% url 'pago' %}";
+            });
+
+            setTimeout(() => {
+                window.location.href = "{% url 'pago' %}";
+            }, 2500);
+        });
+
+        function mostrarReservas() {
+            const lista = document.getElementById("listaReservas");
+            let reservas = JSON.parse(localStorage.getItem("reservas")) || [];
+
+            lista.innerHTML = "";
+
+            if(reservas.length === 0) {
+                lista.innerHTML = `<li class="list-group-item text-muted text-center py-3">No hay reservas recientes</li>`;
+                return;
+            }
+
+            reservas.slice(-3).reverse().forEach(r => {
+                lista.innerHTML += `
+                <li class="list-group-item py-2 px-0">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <strong class="text-dark">${r.nombre}</strong>
+                        <span class="badge bg-warning text-dark">${r.estado}</span>
+                    </div>
+                    <small class="text-muted d-block">${r.cancha} • ${r.fecha} a las ${r.hora} (${r.duracion})</small>
+                </li>`;
+            });
+        }
+
+        mostrarReservas();
+    </script>
+</body>
+</html>
