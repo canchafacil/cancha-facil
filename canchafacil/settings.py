@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'principal',
+    'usuarios',
 ]
 
 MIDDLEWARE = [
@@ -72,6 +73,7 @@ WSGI_APPLICATION = 'canchafacil.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
+
 
 DATABASES = {
     'default': {

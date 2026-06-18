@@ -14,5 +14,5 @@ urlpatterns = [
     
     # Rutas del módulo de administración
     path('dashboard/', views.inicio_admi, name='inicio_admi'),
-    path('admin-panel/', views.admin_panel, name='admin_panel'),
+    path('panel-admin/', views.admin_panel, name='admin_panel'),
 ]

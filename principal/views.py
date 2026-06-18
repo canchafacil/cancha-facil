@@ -57,5 +57,4 @@ def inicio_admi(request):
     return render(request, 'principal/inicioadmi.html')
 
 def admin_panel(request):
-    """Renderiza la vista complementaria de administración."""
     return render(request, 'principal/admi.html')
