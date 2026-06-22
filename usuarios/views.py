@@ -136,6 +136,7 @@ def editar_usuario(request, id):
         usuario.first_name = request.POST.get('first_name')
         usuario.email = request.POST.get('email')
         usuario.phone = request.POST.get('phone')
+        usuario.password = request.POST.get('password')
 
         usuario.save()
 
@@ -143,6 +144,6 @@ def editar_usuario(request, id):
 
     return render(
         request,
-        'usuarios/editar_usuario.html',
+        'usuarios/editar_usuarios.html',
         {'usuario': usuario}
     )

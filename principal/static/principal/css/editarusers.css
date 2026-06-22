@@ -41,19 +41,19 @@ body {
   box-shadow: 0 0 10px rgba(98, 255, 0, 0.6);
 }
 
-/* ===== BOTÓN PRINCIPAL (Navy sobre Verde) ===== */
+/* ===== BOTÓN PRINCIPAL (Texto oscuro sobre fondo Verde) ===== */
 .btn-custom {
-  background-color: #62FF00; /* Verde Intenso */
-  color: #000000;            /* Texto Azul Navy */
-  border: 2px solid #62FF00;
+  background-color: #62FF00 !important; /* Verde Intenso forzado */
+  color: #000000 !important;            /* Texto Negro/Navy forzado */
+  border: 2px solid #62FF00 !important;
   transition: all 0.3s ease-in-out;
 }
 
 /* Efecto Hover invertido */
 .btn-custom:hover {
-  background-color: #525151;
-  color: #62FF00;
-  border-color: #62FF00;
+  background-color: #525151 !important;
+  color: #62FF00 !important;
+  border-color: #62FF00 !important;
   box-shadow: 0 0 20px rgba(98, 255, 0, 0.5); /* Brillo neón */
   transform: translateY(-3px);
 }
