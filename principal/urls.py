@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import include, path
 from . import views
 
 urlpatterns = [
@@ -13,4 +13,5 @@ urlpatterns = [
     # Rutas del módulo de administración
     path('dashboard/', views.inicio_admi, name='inicio_admi'),
     path('panel-admin/', views.admin_panel, name='admin_panel'),
+    path('admin-canchas/', include('canchas_admin.urls')),
 ]
