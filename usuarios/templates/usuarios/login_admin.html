@@ -42,8 +42,9 @@
             </button>
         </form>
 
-        <div class="mt-3">
-            <a href="{% url 'login' %}" class="text-decoration-none back-link">Volver</a>
+        <div class="login-links d-flex flex-column gap-2 mt-3">
+            <a href="{% url 'registro_admin' %}" class="text-decoration-none secondary-link">¿No tienes cuenta? Regístrate</a>
+            <a href="{% url 'inicio' %}" class="text-decoration-none back-link mt-2">Volver</a>
         </div>
     </div>
 

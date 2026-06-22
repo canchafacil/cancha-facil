@@ -1,60 +1,80 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Panel de Administración - CanchaFácil</title>
     <link rel="icon" href="{% static 'principal/img/logo-green.png' %}">
     <link rel="stylesheet" href="{% static 'principal/css/admi.css' %}">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">  
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:wght@400;600;700;800&display=swap"
+        rel="stylesheet">
 </head>
+
 <body class="adm-body bg-dark text-white">
 
     <!-- Navegación -->
     <nav class="navbar navbar-expand-lg navbar-dark shadow cancha-nav">
         <div class="container">
             <div class="d-flex align-items-center">
-                <img src="{% static 'principal/img/logo-green.png' %}" style="height: 90px; object-fit: contain;" alt="Logo CanchaFácil">
+                <img src="{% static 'principal/img/logo-green.png' %}" style="height: 90px; object-fit: contain;"
+                    alt="Logo CanchaFácil">
                 <a class="navbar-brand fw-bold ms-2 m-0 logo-text" href="#" style="font-size: 2rem; color: white;">
                     Cancha<span style="color: #62ff00;">Fácil</span>
                 </a>
             </div>
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuNav" aria-controls="menuNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuNav"
+                aria-controls="menuNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
             <div class="collapse navbar-collapse" id="menuNav">
                 <ul class="nav navbar-nav ms-auto mt-3 mt-lg-0 align-items-center gap-2" id="admTabs" role="tablist">
                     <li class="nav-item" role="presentation">
-                        <button class="btn btn-custom rounded-pill active" id="mes-tab" data-bs-toggle="tab" data-bs-target="#sec-ingreso-mes" type="button" role="tab" aria-controls="sec-ingreso-mes" aria-selected="true">
+                        <button class="btn btn-custom rounded-pill active" id="mes-tab" data-bs-toggle="tab"
+                            data-bs-target="#sec-ingreso-mes" type="button" role="tab" aria-controls="sec-ingreso-mes"
+                            aria-selected="true">
                             Ingreso Mes
                         </button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="btn btn-custom rounded-pill" id="ingresos-tab" data-bs-toggle="tab" data-bs-target="#sec-ingresos" type="button" role="tab" aria-controls="sec-ingresos" aria-selected="false">
+                        <button class="btn btn-custom rounded-pill" id="ingresos-tab" data-bs-toggle="tab"
+                            data-bs-target="#sec-ingresos" type="button" role="tab" aria-controls="sec-ingresos"
+                            aria-selected="false">
                             Ingresos
                         </button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="btn btn-custom rounded-pill" id="resenas-tab" data-bs-toggle="tab" data-bs-target="#sec-resenas" type="button" role="tab" aria-controls="sec-resenas" aria-selected="false">
+                        <button class="btn btn-custom rounded-pill" id="resenas-tab" data-bs-toggle="tab"
+                            data-bs-target="#sec-resenas" type="button" role="tab" aria-controls="sec-resenas"
+                            aria-selected="false">
                             Ver Reseñas
                         </button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="btn btn-custom rounded-pill" id="canchas-tab" data-bs-toggle="tab" data-bs-target="#sec-canchas" type="button" role="tab" aria-controls="sec-canchas" aria-selected="false">
+                        <button class="btn btn-custom rounded-pill" id="canchas-tab" data-bs-toggle="tab"
+                            data-bs-target="#sec-canchas" type="button" role="tab" aria-controls="sec-canchas"
+                            aria-selected="false">
                             Administrar Canchas
                         </button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="btn btn-custom rounded-pill" id="reservas-tab" data-bs-toggle="tab" data-bs-target="#sec-reservas" type="button" role="tab" aria-controls="sec-reservas" aria-selected="false">
+                        <button class="btn btn-custom rounded-pill" id="reservas-tab" data-bs-toggle="tab"
+                            data-bs-target="#sec-reservas" type="button" role="tab" aria-controls="sec-reservas"
+                            aria-selected="false">
                             Ver reservas
                         </button>
                     </li>
+                    <li class="nav-item" role="presentation">
+                        <a href="{% url 'lista_usuarios' %}">
+                            Gestionar Usuarios
+                        </a>
+                    </li>
                     <li class="nav-item ms-lg-3">
-                        <a href="{% url 'login_admin' %}" class="btn btn-salir rounded-pill fw-bold py-2 px-4">Salir</a>    
+                        <a href="{% url 'login_admin' %}" class="btn btn-salir rounded-pill fw-bold py-2 px-4">Salir</a>
                     </li>
                 </ul>
             </div>
@@ -135,8 +155,10 @@
                         <div class="col-12 col-lg-4">
                             <div class="panel-lateral p-4 rounded-4 shadow-sm text-center">
                                 <h4 class="text-white mb-3 fw-bold">Panel Contable</h4>
-                                <p class="text-white-50 small mb-4">Verifica el balance total de las reservas registradas y los cierres de caja en tiempo real.</p>
-                                <button class="btn btn-panel-action w-100 py-3 rounded-3 fw-bold" onclick="document.getElementById('ingresos-tab').click();">
+                                <p class="text-white-50 small mb-4">Verifica el balance total de las reservas
+                                    registradas y los cierres de caja en tiempo real.</p>
+                                <button class="btn btn-panel-action w-100 py-3 rounded-3 fw-bold"
+                                    onclick="document.getElementById('ingresos-tab').click();">
                                     Ver Reporte de Ingresos
                                 </button>
                             </div>
@@ -151,8 +173,10 @@
                     <h1 class="text-white mb-4 fw-bold text-center text-md-start">Historial de Ingresos</h1>
                     <div class="row g-4">
                         <div class="col-12 col-lg-8">
-                            <div class="cuadro-grafico p-4 rounded-4 shadow-sm d-flex justify-content-center align-items-center h-100">
-                                <img src="{% static 'principal/imagenes/Gemini_Generated_Image_etcwueetcwueetcw.png' %}" alt="Gráfico de barras" class="img-fluid rounded-3 shadow">
+                            <div
+                                class="cuadro-grafico p-4 rounded-4 shadow-sm d-flex justify-content-center align-items-center h-100">
+                                <img src="{% static 'principal/imagenes/Gemini_Generated_Image_etcwueetcwueetcw.png' %}"
+                                    alt="Gráfico de barras" class="img-fluid rounded-3 shadow">
                             </div>
                         </div>
                         <div class="col-12 col-lg-4">
@@ -190,7 +214,8 @@
             <!-- ===== VER RESEÑAS ===== -->
             <div class="tab-pane fade" id="sec-resenas" role="tabpanel" aria-labelledby="resenas-tab">
                 <section class="adm-root container-fluid p-0">
-                    <div class="adm-header d-flex flex-column flex-lg-row justify-content-between align-items-start align-items-lg-center gap-4 mb-4">
+                    <div
+                        class="adm-header d-flex flex-column flex-lg-row justify-content-between align-items-start align-items-lg-center gap-4 mb-4">
                         <div class="adm-header-left">
                             <h2 class="adm-titulo m-0">PANEL DE RESEÑAS</h2>
                             <p class="adm-sub m-0">Gestión de comentarios — Cancha Fácil</p>
@@ -210,7 +235,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="adm-toolbar p-3 mb-4 d-flex flex-column flex-md-row justify-content-between align-items-stretch align-items-md-center gap-3">
+                    <div
+                        class="adm-toolbar p-3 mb-4 d-flex flex-column flex-md-row justify-content-between align-items-stretch align-items-md-center gap-3">
                         <div class="adm-filtros d-flex flex-column flex-sm-row gap-2 flex-grow-1">
                             <select class="adm-select form-select" id="filtro-cancha" onchange="aplicarFiltros()">
                                 <option value="">Todas las canchas</option>
@@ -226,7 +252,8 @@
                                 <option value="2">★★☆☆☆ (2)</option>
                                 <option value="1">★☆☆☆☆ (1)</option>
                             </select>
-                            <input class="adm-input form-control" id="filtro-buscar" type="text" placeholder="Buscar por nombre o comentario..." oninput="aplicarFiltros()">
+                            <input class="adm-input form-control" id="filtro-buscar" type="text"
+                                placeholder="Buscar por nombre o comentario..." oninput="aplicarFiltros()">
                         </div>
                         <button class="adm-btn-arch align-self-md-center" id="btn-toggle-arch" onclick="toggleVista()">
                             Ver archivados
@@ -248,7 +275,8 @@
                                 </thead>
                                 <tbody id="tbody-activas"></tbody>
                             </table>
-                            <p class="adm-empty py-5 text-center text-white-50" id="empty-activas" style="display:none;">
+                            <p class="adm-empty py-5 text-center text-white-50" id="empty-activas"
+                                style="display:none;">
                                 No hay reseñas que coincidan con los filtros.
                             </p>
                         </div>
@@ -272,7 +300,8 @@
                                 </thead>
                                 <tbody id="tbody-archivadas"></tbody>
                             </table>
-                            <p class="adm-empty py-5 text-center text-white-50" id="empty-archivadas" style="display:none;">
+                            <p class="adm-empty py-5 text-center text-white-50" id="empty-archivadas"
+                                style="display:none;">
                                 No hay reseñas archivadas.
                             </p>
                         </div>
@@ -280,10 +309,13 @@
                     <div class="adm-modal-overlay" id="modal-overlay" style="display:none;">
                         <div class="adm-modal p-4 text-center rounded-4">
                             <h3 class="adm-modal-titulo mb-2 fw-bold text-white">¿Eliminar reseña?</h3>
-                            <p class="adm-modal-texto mb-4 text-white-50">Esta acción es permanente y no se puede deshacer.</p>
+                            <p class="adm-modal-texto mb-4 text-white-50">Esta acción es permanente y no se puede
+                                deshacer.</p>
                             <div class="adm-modal-btns d-flex justify-content-center gap-2">
-                                <button class="adm-btn-cancelar px-4 py-2 rounded-pill border-0 fw-bold" onclick="cerrarModal()">Cancelar</button>
-                                <button class="adm-btn-confirmar px-4 py-2 rounded-pill border-0 fw-bold text-white" id="btn-confirmar-eliminar">Eliminar</button>
+                                <button class="adm-btn-cancelar px-4 py-2 rounded-pill border-0 fw-bold"
+                                    onclick="cerrarModal()">Cancelar</button>
+                                <button class="adm-btn-confirmar px-4 py-2 rounded-pill border-0 fw-bold text-white"
+                                    id="btn-confirmar-eliminar">Eliminar</button>
                             </div>
                         </div>
                     </div>
@@ -303,84 +335,102 @@
                     <div class="row g-4">
                         <div class="col-md-4">
                             <div class="card shadow h-100" style="background-color: #03045e; color: white">
-                                <img src="https://www.equiver.com.co/images/campos-futbol-microfutbol-grama-sintetica/campos-futbol-microfutbol-grama-sintetica-2.jpg" class="card-img-top" alt="Cancha"/>
+                                <img src="https://www.equiver.com.co/images/campos-futbol-microfutbol-grama-sintetica/campos-futbol-microfutbol-grama-sintetica-2.jpg"
+                                    class="card-img-top" alt="Cancha" />
                                 <div class="card-body">
                                     <h5 class="card-title">Cancha Principal</h5>
-                                    <p class="card-text"><strong>Tipo:</strong> Fútbol 5 <br/><strong>Precio:</strong> $50.000/hora</p>
+                                    <p class="card-text"><strong>Tipo:</strong> Fútbol 5 <br /><strong>Precio:</strong>
+                                        $50.000/hora</p>
                                     <span class="badge bg-success">Disponible</span>
                                 </div>
                                 <div class="card-footer border-0 d-flex justify-content-between">
-                                    <button class="btn btn-warning btn-sm" style="background-color: #62ff00; border-color: #62ff00; color: black;">Editar</button>
+                                    <button class="btn btn-warning btn-sm"
+                                        style="background-color: #62ff00; border-color: #62ff00; color: black;">Editar</button>
                                     <button class="btn btn-danger btn-sm">Eliminar</button>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="card shadow h-100" style="background-color: #03045e; color: white">
-                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRW9qax95RyzyaB4_CHJXXMulQzpZMYt6vctA&s" class="card-img-top" alt="Cancha"/>
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRW9qax95RyzyaB4_CHJXXMulQzpZMYt6vctA&s"
+                                    class="card-img-top" alt="Cancha" />
                                 <div class="card-body">
                                     <h5 class="card-title">Cancha Auxiliar</h5>
-                                    <p class="card-text"><strong>Tipo:</strong> Fútbol 7 <br/><strong>Precio:</strong> $80.000/hora</p>
+                                    <p class="card-text"><strong>Tipo:</strong> Fútbol 7 <br /><strong>Precio:</strong>
+                                        $80.000/hora</p>
                                     <span class="badge bg-secondary">Mantenimiento</span>
                                 </div>
                                 <div class="card-footer border-0 d-flex justify-content-between">
-                                    <button class="btn btn-warning btn-sm" style="background-color: #62ff00; border-color: #62ff00; color: black;">Editar</button>
+                                    <button class="btn btn-warning btn-sm"
+                                        style="background-color: #62ff00; border-color: #62ff00; color: black;">Editar</button>
                                     <button class="btn btn-danger btn-sm">Eliminar</button>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="card shadow h-100" style="background-color: #03045e; color: white">
-                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgSZSr3Ub_Aie0595A6NWWb-hUJp-svEa9xw&s" class="card-img-top" alt="Cancha"/>
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgSZSr3Ub_Aie0595A6NWWb-hUJp-svEa9xw&s"
+                                    class="card-img-top" alt="Cancha" />
                                 <div class="card-body">
                                     <h5 class="card-title">Cancha Sintética Norte</h5>
-                                    <p class="card-text"><strong>Tipo:</strong> Fútbol 5 <br/><strong>Precio:</strong> $60.000/hora</p>
+                                    <p class="card-text"><strong>Tipo:</strong> Fútbol 5 <br /><strong>Precio:</strong>
+                                        $60.000/hora</p>
                                     <span class="badge bg-success">Disponible</span>
                                 </div>
                                 <div class="card-footer border-0 d-flex justify-content-between">
-                                    <button class="btn btn-warning btn-sm" style="background-color: #62ff00; border-color: #62ff00; color: black;">Editar</button>
+                                    <button class="btn btn-warning btn-sm"
+                                        style="background-color: #62ff00; border-color: #62ff00; color: black;">Editar</button>
                                     <button class="btn btn-danger btn-sm">Eliminar</button>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="card shadow h-100" style="background-color: #03045e; color: white">
-                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsFDFRsVRmEBzpEdQgnl9x4sqxS-ZnNTWmiA&s" class="card-img-top" alt="Cancha"/>
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsFDFRsVRmEBzpEdQgnl9x4sqxS-ZnNTWmiA&s"
+                                    class="card-img-top" alt="Cancha" />
                                 <div class="card-body">
                                     <h5 class="card-title">Cancha Principal</h5>
-                                    <p class="card-text"><strong>Tipo:</strong> Fútbol 5 <br/><strong>Precio:</strong> $50.000/hora</p>
+                                    <p class="card-text"><strong>Tipo:</strong> Fútbol 5 <br /><strong>Precio:</strong>
+                                        $50.000/hora</p>
                                     <span class="badge bg-success">Disponible</span>
                                 </div>
                                 <div class="card-footer border-0 d-flex justify-content-between">
-                                    <button class="btn btn-warning btn-sm" style="background-color: #62ff00; border-color: #62ff00; color: black;">Editar</button>
+                                    <button class="btn btn-warning btn-sm"
+                                        style="background-color: #62ff00; border-color: #62ff00; color: black;">Editar</button>
                                     <button class="btn btn-danger btn-sm">Eliminar</button>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="card shadow h-100" style="background-color: #03045e; color: white">
-                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIQ5MdjsJ09pKlqY3Jn0kwB3Ife_YXl5zOiA&s" class="card-img-top" alt="Cancha"/>
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIQ5MdjsJ09pKlqY3Jn0kwB3Ife_YXl5zOiA&s"
+                                    class="card-img-top" alt="Cancha" />
                                 <div class="card-body">
                                     <h5 class="card-title">Cancha Principal</h5>
-                                    <p class="card-text"><strong>Tipo:</strong> Fútbol 5 <br/><strong>Precio:</strong> $50.000/hora</p>
+                                    <p class="card-text"><strong>Tipo:</strong> Fútbol 5 <br /><strong>Precio:</strong>
+                                        $50.000/hora</p>
                                     <span class="badge bg-success">Disponible</span>
                                 </div>
                                 <div class="card-footer border-0 d-flex justify-content-between">
-                                    <button class="btn btn-warning btn-sm" style="background-color: #62ff00; border-color: #62ff00; color: black;">Editar</button>
+                                    <button class="btn btn-warning btn-sm"
+                                        style="background-color: #62ff00; border-color: #62ff00; color: black;">Editar</button>
                                     <button class="btn btn-danger btn-sm">Eliminar</button>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="card shadow h-100" style="background-color: #03045e; color: white">
-                                <img src="https://www2.culturarecreacionydeporte.gov.co/sites/default/files/styles/escala_800_px/public/2015_articulos_2/cfiip.jpg?itok=UzCjkm7B" class="card-img-top" alt="Cancha"/>
+                                <img src="https://www2.culturarecreacionydeporte.gov.co/sites/default/files/styles/escala_800_px/public/2015_articulos_2/cfiip.jpg?itok=UzCjkm7B"
+                                    class="card-img-top" alt="Cancha" />
                                 <div class="card-body">
                                     <h5 class="card-title">Cancha Principal</h5>
-                                    <p class="card-text"><strong>Tipo:</strong> Fútbol 5 <br/><strong>Precio:</strong> $50.000/hora</p>
+                                    <p class="card-text"><strong>Tipo:</strong> Fútbol 5 <br /><strong>Precio:</strong>
+                                        $50.000/hora</p>
                                     <span class="badge bg-success">Disponible</span>
                                 </div>
                                 <div class="card-footer border-0 d-flex justify-content-between">
-                                    <button class="btn btn-warning btn-sm" style="background-color: #62ff00; border-color: #62ff00; color: black;">Editar</button>
+                                    <button class="btn btn-warning btn-sm"
+                                        style="background-color: #62ff00; border-color: #62ff00; color: black;">Editar</button>
                                     <button class="btn btn-danger btn-sm">Eliminar</button>
                                 </div>
                             </div>
@@ -490,53 +540,53 @@
 
     <!-- Script Reseñas -->
     <script>
-    function fechaAleatoria() {
-        const ahora = new Date();
-        const diasAtras = Math.floor(Math.random() * 90);
-        const d = new Date(ahora - diasAtras * 86400000);
-        return d.toISOString();
-    }
+        function fechaAleatoria() {
+            const ahora = new Date();
+            const diasAtras = Math.floor(Math.random() * 90);
+            const d = new Date(ahora - diasAtras * 86400000);
+            return d.toISOString();
+        }
 
-    let activas = [
-        { id:1, nombre:"Carlos Mendoza", jugador:"Capitán de equipo", cancha:"Fútbol 8", estrellas:5, texto:"La iluminación nocturna es excelente, jugamos hasta las 11 pm sin ningún problema. El pasto sintético en perfecto estado.", fecha: fechaAleatoria() },
-        { id:2, nombre:"Valentina Ríos", jugador:"Jugadora amateur", cancha:"Fútbol 5", estrellas:5, texto:"Reservé en menos de 2 minutos desde el celular. Proceso súper fácil y el precio es muy justo para la calidad que ofrecen.", fecha: fechaAleatoria() },
-        { id:3, nombre:"Andrés Camargo", jugador:"Organizador de torneos", cancha:"Cancha múltiple", estrellas:5, texto:"Organizamos torneos aquí cada mes. El staff es puntual y las canchas siempre en perfectas condiciones. Totalmente recomendado.", fecha: fechaAleatoria() },
-        { id:4, nombre:"María Fernanda G.", jugador:"Jugadora recreativa", cancha:"Fútbol 5", estrellas:5, texto:"Me sorprendió lo bien cuidada que está la grama. Ambiente seguro y muy limpio. Volvería mil veces más sin dudarlo.", fecha: fechaAleatoria() },
-        { id:5, nombre:"Felipe Ortega", jugador:"Jugador semiprofesional", cancha:"Fútbol 8", estrellas:4, texto:"La cancha es de muy buena calidad. Solo sugeriría agregar más zona de descanso para los jugadores que esperan turno.", fecha: fechaAleatoria() }
-    ];
+        let activas = [
+            { id: 1, nombre: "Carlos Mendoza", jugador: "Capitán de equipo", cancha: "Fútbol 8", estrellas: 5, texto: "La iluminación nocturna es excelente, jugamos hasta las 11 pm sin ningún problema. El pasto sintético en perfecto estado.", fecha: fechaAleatoria() },
+            { id: 2, nombre: "Valentina Ríos", jugador: "Jugadora amateur", cancha: "Fútbol 5", estrellas: 5, texto: "Reservé en menos de 2 minutos desde el celular. Proceso súper fácil y el precio es muy justo para la calidad que ofrecen.", fecha: fechaAleatoria() },
+            { id: 3, nombre: "Andrés Camargo", jugador: "Organizador de torneos", cancha: "Cancha múltiple", estrellas: 5, texto: "Organizamos torneos aquí cada mes. El staff es puntual y las canchas siempre en perfectas condiciones. Totalmente recomendado.", fecha: fechaAleatoria() },
+            { id: 4, nombre: "María Fernanda G.", jugador: "Jugadora recreativa", cancha: "Fútbol 5", estrellas: 5, texto: "Me sorprendió lo bien cuidada que está la grama. Ambiente seguro y muy limpio. Volvería mil veces más sin dudarlo.", fecha: fechaAleatoria() },
+            { id: 5, nombre: "Felipe Ortega", jugador: "Jugador semiprofesional", cancha: "Fútbol 8", estrellas: 4, texto: "La cancha es de muy buena calidad. Solo sugeriría agregar más zona de descanso para los jugadores que esperan turno.", fecha: fechaAleatoria() }
+        ];
 
-    let archivadas = [];
-    let vistaActual = 'activas';
-    let pendienteEliminarId = null;
-    let pendienteEliminarLista = null;
+        let archivadas = [];
+        let vistaActual = 'activas';
+        let pendienteEliminarId = null;
+        let pendienteEliminarLista = null;
 
-    function starsHTML(n) {
-        let h = '';
-        for (let i = 1; i <= 5; i++)
-            h += `<span style="color:${i <= n ? '#62FF00' : '#525151'}">★</span>`;
-        return h;
-    }
+        function starsHTML(n) {
+            let h = '';
+            for (let i = 1; i <= 5; i++)
+                h += `<span style="color:${i <= n ? '#62FF00' : '#525151'}">★</span>`;
+            return h;
+        }
 
-    function iniciales(nombre) {
-        return nombre.split(' ').slice(0,2).map(p=>p[0]).join('').toUpperCase();
-    }
+        function iniciales(nombre) {
+            return nombre.split(' ').slice(0, 2).map(p => p[0]).join('').toUpperCase();
+        }
 
-    function formatFecha(iso) {
-        const d = new Date(iso);
-        return d.toLocaleDateString('es-CO', { day:'2-digit', month:'short' }) + ' - ' + d.toLocaleTimeString('es-CO', { hour:'2-digit', minute:'2-digit' });
-    }
+        function formatFecha(iso) {
+            const d = new Date(iso);
+            return d.toLocaleDateString('es-CO', { day: '2-digit', month: 'short' }) + ' - ' + d.toLocaleTimeString('es-CO', { hour: '2-digit', minute: '2-digit' });
+        }
 
-    function actualizarStats() {
-        document.getElementById('adm-total').textContent = activas.length;
-        document.getElementById('adm-arch').textContent  = archivadas.length;
-        const prom = activas.length ? (activas.reduce((a,r) => a + r.estrellas, 0) / activas.length).toFixed(1) : '—';
-        document.getElementById('adm-prom').textContent = prom;
-    }
+        function actualizarStats() {
+            document.getElementById('adm-total').textContent = activas.length;
+            document.getElementById('adm-arch').textContent = archivadas.length;
+            const prom = activas.length ? (activas.reduce((a, r) => a + r.estrellas, 0) / activas.length).toFixed(1) : '—';
+            document.getElementById('adm-prom').textContent = prom;
+        }
 
-    function crearFila(r, esArchivada) {
-        const tr = document.createElement('tr');
-        tr.id = 'fila-' + r.id;
-        tr.innerHTML = `
+        function crearFila(r, esArchivada) {
+            const tr = document.createElement('tr');
+            tr.id = 'fila-' + r.id;
+            tr.innerHTML = `
             <td>
                 <div class="adm-user d-flex align-items-center gap-2">
                     <div class="adm-avatar">${iniciales(r.nombre)}</div>
@@ -551,147 +601,147 @@
             <td>
                 <div class="adm-acciones d-flex gap-2">
                     ${esArchivada
-                        ? `<button class="adm-btn restaurar" onclick="restaurar(${r.id})">↩ Restaurar</button>`
-                        : `<button class="adm-btn archivar" onclick="archivar(${r.id})">Archivar</button>`
-                    }
+                    ? `<button class="adm-btn restaurar" onclick="restaurar(${r.id})">↩ Restaurar</button>`
+                    : `<button class="adm-btn archivar" onclick="archivar(${r.id})">Archivar</button>`
+                }
                     <button class="adm-btn eliminar" onclick="pedirEliminar(${r.id}, '${esArchivada ? 'arch' : 'act'}')">🗑 Eliminar</button>
                 </div>
             </td>
         `;
-        return tr;
-    }
-
-    function renderTabla(lista, tbodyId, emptyId) {
-        const tbody = document.getElementById(tbodyId);
-        if(!tbody) return;
-        const empty = document.getElementById(emptyId);
-        tbody.innerHTML = '';
-        if (!lista.length) {
-            empty.style.display = 'block';
-        } else {
-            empty.style.display = 'none';
-            const esArch = tbodyId === 'tbody-archivadas';
-            lista.forEach(r => tbody.appendChild(crearFila(r, esArch)));
+            return tr;
         }
-    }
 
-    function aplicarFiltros() {
-        const cancha    = document.getElementById('filtro-cancha').value;
-        const estrellas = document.getElementById('filtro-estrellas').value;
-        const buscar    = document.getElementById('filtro-buscar').value.toLowerCase();
-        const filtradas = activas.filter(r => {
-            const porCancha    = !cancha    || r.cancha === cancha;
-            const porEstrellas = !estrellas || r.estrellas === parseInt(estrellas);
-            const porBuscar    = !buscar || r.nombre.toLowerCase().includes(buscar) || r.texto.toLowerCase().includes(buscar);
-            return porCancha && porEstrellas && porBuscar;
+        function renderTabla(lista, tbodyId, emptyId) {
+            const tbody = document.getElementById(tbodyId);
+            if (!tbody) return;
+            const empty = document.getElementById(emptyId);
+            tbody.innerHTML = '';
+            if (!lista.length) {
+                empty.style.display = 'block';
+            } else {
+                empty.style.display = 'none';
+                const esArch = tbodyId === 'tbody-archivadas';
+                lista.forEach(r => tbody.appendChild(crearFila(r, esArch)));
+            }
+        }
+
+        function aplicarFiltros() {
+            const cancha = document.getElementById('filtro-cancha').value;
+            const estrellas = document.getElementById('filtro-estrellas').value;
+            const buscar = document.getElementById('filtro-buscar').value.toLowerCase();
+            const filtradas = activas.filter(r => {
+                const porCancha = !cancha || r.cancha === cancha;
+                const porEstrellas = !estrellas || r.estrellas === parseInt(estrellas);
+                const porBuscar = !buscar || r.nombre.toLowerCase().includes(buscar) || r.texto.toLowerCase().includes(buscar);
+                return porCancha && porEstrellas && porBuscar;
+            });
+            renderTabla(filtradas, 'tbody-activas', 'empty-activas');
+        }
+
+        function renderTodo() {
+            aplicarFiltros();
+            renderTabla(archivadas, 'tbody-archivadas', 'empty-archivadas');
+            actualizarStats();
+        }
+
+        function archivar(id) {
+            const idx = activas.findIndex(r => r.id === id);
+            if (idx === -1) return;
+            const [r] = activas.splice(idx, 1);
+            archivadas.unshift(r);
+            animarFila(id, () => renderTodo());
+        }
+
+        function restaurar(id) {
+            const idx = archivadas.findIndex(r => r.id === id);
+            if (idx === -1) return;
+            const [r] = archivadas.splice(idx, 1);
+            activas.unshift(r);
+            animarFila(id, () => renderTodo());
+        }
+
+        function pedirEliminar(id, lista) {
+            pendienteEliminarId = id;
+            pendienteEliminarLista = lista;
+            document.getElementById('modal-overlay').style.display = 'flex';
+        }
+
+        document.getElementById('btn-confirmar-eliminar').onclick = function () {
+            const lista = pendienteEliminarLista === 'arch' ? archivadas : activas;
+            const idx = lista.findIndex(r => r.id === pendienteEliminarId);
+            if (idx !== -1) lista.splice(idx, 1);
+            cerrarModal();
+            renderTodo();
+        };
+
+        function cerrarModal() {
+            document.getElementById('modal-overlay').style.display = 'none';
+            pendienteEliminarId = null;
+            pendienteEliminarLista = null;
+        }
+
+        function animarFila(id, cb) {
+            const fila = document.getElementById('fila-' + id);
+            if (fila) {
+                fila.classList.add('salir');
+                fila.addEventListener('animationend', cb, { once: true });
+            } else {
+                cb();
+            }
+        }
+
+        function toggleVista() {
+            const btnToggle = document.getElementById('btn-toggle-arch');
+            const vActivas = document.getElementById('vista-activas');
+            const vArch = document.getElementById('vista-archivadas');
+            if (vistaActual === 'activas') {
+                vistaActual = 'archivadas';
+                vActivas.style.display = 'none';
+                vArch.style.display = 'block';
+                btnToggle.textContent = 'Ver activas';
+                btnToggle.classList.add('activo');
+            } else {
+                vistaActual = 'activas';
+                vActivas.style.display = 'block';
+                vArch.style.display = 'none';
+                btnToggle.textContent = 'Ver archivados';
+                btnToggle.classList.remove('activo');
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            renderTodo();
         });
-        renderTabla(filtradas, 'tbody-activas', 'empty-activas');
-    }
-
-    function renderTodo() {
-        aplicarFiltros();
-        renderTabla(archivadas, 'tbody-archivadas', 'empty-archivadas');
-        actualizarStats();
-    }
-
-    function archivar(id) {
-        const idx = activas.findIndex(r => r.id === id);
-        if (idx === -1) return;
-        const [r] = activas.splice(idx, 1);
-        archivadas.unshift(r);
-        animarFila(id, () => renderTodo());
-    }
-
-    function restaurar(id) {
-        const idx = archivadas.findIndex(r => r.id === id);
-        if (idx === -1) return;
-        const [r] = archivadas.splice(idx, 1);
-        activas.unshift(r);
-        animarFila(id, () => renderTodo());
-    }
-
-    function pedirEliminar(id, lista) {
-        pendienteEliminarId    = id;
-        pendienteEliminarLista = lista;
-        document.getElementById('modal-overlay').style.display = 'flex';
-    }
-
-    document.getElementById('btn-confirmar-eliminar').onclick = function() {
-        const lista = pendienteEliminarLista === 'arch' ? archivadas : activas;
-        const idx   = lista.findIndex(r => r.id === pendienteEliminarId);
-        if (idx !== -1) lista.splice(idx, 1);
-        cerrarModal();
-        renderTodo();
-    };
-
-    function cerrarModal() {
-        document.getElementById('modal-overlay').style.display = 'none';
-        pendienteEliminarId = null;
-        pendienteEliminarLista = null;
-    }
-
-    function animarFila(id, cb) {
-        const fila = document.getElementById('fila-' + id);
-        if (fila) {
-            fila.classList.add('salir');
-            fila.addEventListener('animationend', cb, { once: true });
-        } else {
-            cb();
-        }
-    }
-
-    function toggleVista() {
-        const btnToggle = document.getElementById('btn-toggle-arch');
-        const vActivas  = document.getElementById('vista-activas');
-        const vArch     = document.getElementById('vista-archivadas');
-        if (vistaActual === 'activas') {
-            vistaActual = 'archivadas';
-            vActivas.style.display = 'none';
-            vArch.style.display    = 'block';
-            btnToggle.textContent  = 'Ver activas';
-            btnToggle.classList.add('activo');
-        } else {
-            vistaActual = 'activas';
-            vActivas.style.display = 'block';
-            vArch.style.display    = 'none';
-            btnToggle.textContent  = 'Ver archivados';
-            btnToggle.classList.remove('activo');
-        }
-    }
-
-    document.addEventListener("DOMContentLoaded", function() {
-        renderTodo();
-    });
     </script>
 
     <!-- Script Reservas -->
     <script>
-    const tbodyRes = document.getElementById("tbodyReservas");
+        const tbodyRes = document.getElementById("tbodyReservas");
 
-    let reservas = JSON.parse(localStorage.getItem("reservas")) || [];
-    reservas.forEach(r => { if (!r.estado) r.estado = "Pendiente"; });
-    localStorage.setItem("reservas", JSON.stringify(reservas));
+        let reservas = JSON.parse(localStorage.getItem("reservas")) || [];
+        reservas.forEach(r => { if (!r.estado) r.estado = "Pendiente"; });
+        localStorage.setItem("reservas", JSON.stringify(reservas));
 
-    function actualizarStatsReservas() {
-        const conf = reservas.filter(r => r.estado === "Confirmada").length;
-        const pend = reservas.filter(r => r.estado === "Pendiente").length;
-        document.getElementById("stat-total").textContent = reservas.length;
-        document.getElementById("stat-conf").textContent  = conf;
-        document.getElementById("stat-pend").textContent  = pend;
-    }
-
-    function cargarTabla() {
-        tbodyRes.innerHTML = "";
-        const empty = document.getElementById("empty-reservas");
-        if (!reservas.length) {
-            empty.style.display = "block";
-            actualizarStatsReservas();
-            return;
+        function actualizarStatsReservas() {
+            const conf = reservas.filter(r => r.estado === "Confirmada").length;
+            const pend = reservas.filter(r => r.estado === "Pendiente").length;
+            document.getElementById("stat-total").textContent = reservas.length;
+            document.getElementById("stat-conf").textContent = conf;
+            document.getElementById("stat-pend").textContent = pend;
         }
-        empty.style.display = "none";
-        reservas.forEach((r, index) => {
-            const tr = document.createElement("tr");
-            tr.innerHTML = `
+
+        function cargarTabla() {
+            tbodyRes.innerHTML = "";
+            const empty = document.getElementById("empty-reservas");
+            if (!reservas.length) {
+                empty.style.display = "block";
+                actualizarStatsReservas();
+                return;
+            }
+            empty.style.display = "none";
+            reservas.forEach((r, index) => {
+                const tr = document.createElement("tr");
+                tr.innerHTML = `
                 <td><span class="text-white fw-bold">${r.nombre}</span></td>
                 <td><span class="adm-tag cancha">${r.cancha}</span></td>
                 <td class="adm-fecha">${r.fecha}</td>
@@ -704,32 +754,33 @@
                 <td>
                     <div class="adm-acciones d-flex gap-2">
                         ${r.estado === "Pendiente"
-                            ? `<button class="adm-btn restaurar" onclick="confirmarRes(${index})">✔ Confirmar</button>`
-                            : ""}
+                        ? `<button class="adm-btn restaurar" onclick="confirmarRes(${index})">✔ Confirmar</button>`
+                        : ""}
                         <button class="adm-btn eliminar" onclick="eliminarRes(${index})">🗑 Eliminar</button>
                     </div>
                 </td>`;
-            tbodyRes.appendChild(tr);
-        });
-        actualizarStatsReservas();
-    }
+                tbodyRes.appendChild(tr);
+            });
+            actualizarStatsReservas();
+        }
 
-    function confirmarRes(i) {
-        reservas[i].estado = "Confirmada";
-        localStorage.setItem("reservas", JSON.stringify(reservas));
-        cargarTabla();
-    }
-
-    function eliminarRes(i) {
-        if (confirm("¿Eliminar esta reserva?")) {
-            reservas.splice(i, 1);
+        function confirmarRes(i) {
+            reservas[i].estado = "Confirmada";
             localStorage.setItem("reservas", JSON.stringify(reservas));
             cargarTabla();
         }
-    }
 
-    document.addEventListener("DOMContentLoaded", cargarTabla);
+        function eliminarRes(i) {
+            if (confirm("¿Eliminar esta reserva?")) {
+                reservas.splice(i, 1);
+                localStorage.setItem("reservas", JSON.stringify(reservas));
+                cargarTabla();
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", cargarTabla);
     </script>
 
 </body>
+
 </html>
